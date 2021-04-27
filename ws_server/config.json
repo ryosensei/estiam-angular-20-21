@@ -1,0 +1,6 @@
+{
+    "websocket": {
+        "port": 3001
+    },
+    "history": 50
+}
