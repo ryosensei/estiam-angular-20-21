@@ -1,16 +1,15 @@
-<form class="form" (ngSubmit)="newTask()">
+<form [formGroup]="taskForm" class="form" (ngSubmit)="newTask()">
     <div class="form-group">
         <label for=""> Task Name </label>
-        <input type="text" class="form-control" [formControl]="name">
+        <input type="text" class="form-control" formControlName="name">
     </div>
 
     <div class="form-group">
         <label for=""> Description </label>
-        <textarea name="" id="" cols="30" rows="10" class="form-control" [formControl]="desc"></textarea>
+        <textarea name="" id="" cols="30" rows="10" class="form-control" formControlName="desc"></textarea>
     </div>
 
     <div class="form-group">
         <button class="btn btn-success" (click)="newTask()"> Submit </button>
     </div>
-
 </form>

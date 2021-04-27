@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Task } from './models/task.model';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +11,9 @@ export class AppComponent {
 
   tasks = [];
 
-  addTask(Task)
+  addTask(task: Task): void
   {
-    this.tasks.push({
-      name: Task.name,
-      description: Task.description
-    });
+    this.tasks.push(task);
   }
 
   removeTask(toRemove)
@@ -23,5 +21,6 @@ export class AppComponent {
     this.tasks = this.tasks.filter((elem, i) => {
       return i !== toRemove;
     });
+
   }
 }
