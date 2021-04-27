@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { NewComponent } from './new/new.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { Task } from './models/task.model';
 
@@ -20,10 +21,11 @@ import { Task } from './models/task.model';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
-    Task
+    Task,
   ],
   bootstrap: [AppComponent]
 })
