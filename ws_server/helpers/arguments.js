@@ -8,4 +8,5 @@ if (process.argv.indexOf("-vvv") !== -1) {
     v = 1;
 }
 const VERBOSE = v;
+
 exports.VERBOSE = VERBOSE;
