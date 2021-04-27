@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'todolist';
+
+  tasks = [];
+
+  addTask(Task)
+  {
+    this.tasks.push({
+      name: Task.name,
+      description: Task.description
+    });
+  }
+
+  removeTask(toRemove)
+  {
+    this.tasks = this.tasks.filter((elem, i) => {
+      return i !== toRemove;
+    });
+  }
 }
