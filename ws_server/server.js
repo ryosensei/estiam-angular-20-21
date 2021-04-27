@@ -28,6 +28,7 @@ const startServer = async () => {
     io.on('connection', function(client) {
         log(`Client connected \n`);
 
+
         // Must be identified
         client.on(`identify`, (params) => {
             let date = DateTime.now();
@@ -41,6 +42,12 @@ const startServer = async () => {
 
             // When identified, send the last {config.history} messages
             client.emit("history", messages);
+            client.emit("online-users", userConnected);
+            for (let i in clients) {
+                if (clients[i].name !== params.name) {
+                    clients[i].emit("user-connected", params.name);
+                }
+            }
         });
 
         // Handle new message sent
@@ -59,13 +66,16 @@ const startServer = async () => {
 
             // Send new message to connected clients
             for (let i in clients) {
-                client.emit("message", newMessage);
+                clients[i].emit("message", newMessage);
             }
         });
 
         // Client disconnected
         client.on('disconnect', function() {
             log(`${client.name} disconnected \n`, 'red');
+            userConnected = userConnected.filter(user => {
+                return (user.name !== client.name);
+            });
             delete clients[client.id];
 
         });

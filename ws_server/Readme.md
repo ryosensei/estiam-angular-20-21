@@ -27,6 +27,34 @@ socket.on('history', (messages) => {
 }, (...)]
 ```
 
+## User onlines
+
+This is sent when the user first connect : 
+
+```
+socket.on('online-users', users => {
+    log(`User onlines : \n`);
+    users.map(user => {
+        log(`\t${user.name} \n`, 'green');
+    })
+});
+
+Result : 
+
+[ { name: 'user1', connectedAt: 1619527619.847 }, { name: 'user2', connectedAt: 1619527619.847 } ... ]
+
+```
+
+## New user connect 
+
+```
+socket.on('user-connected', user => {
+    log(`New user connected : ${user} \n`, 'green');
+});
+
+
+```
+
 ## Send new message
 
 ```
