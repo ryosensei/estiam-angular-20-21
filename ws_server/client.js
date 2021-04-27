@@ -5,7 +5,6 @@ const { DateTime } = require('luxon');
 
 var socket         = io("ws://localhost:3001");
 
-
 // On connect
 socket.on('connect', function(client) {
     log(`Connected to server \n`, 'green');
