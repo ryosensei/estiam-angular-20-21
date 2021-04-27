@@ -3,7 +3,7 @@ const io           = require('socket.io-client');
 const { log, dd }  = require('@ryosensei/console');
 const { DateTime } = require('luxon');
 
-var socket         = io("ws://localhost:3001");
+var socket         = io("ws://163.172.149.194:3001");
 
 // On connect
 socket.on('connect', function(client) {
@@ -17,9 +17,9 @@ socket.on('connect', function(client) {
     });
 
     // Send a message every 1sec
-    setInterval(() => {
-        socket.emit('new-message', "Coucou");
-    }, 1000);
+    // setInterval(() => {
+    //     socket.emit('new-message', "Coucou");
+    // }, 1000);
 
 
     // Handle new message

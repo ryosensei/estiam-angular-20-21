@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  app:
+    image: node:14-alpine
+    logging:
+      options:
+        max-size: 10m
+    working_dir: /usr/src/app
+    command: "node server.js -v"
+    environment:
+      - TZ=Europe/Paris
+    ports:
+      - 3001:3001
+    hostname: chat-server
+    container_name: chat-server
+    restart: unless-stopped
+    working_dir: /usr/src/app
+    volumes:
+      - ./:/usr/src/app/
