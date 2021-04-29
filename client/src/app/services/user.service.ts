@@ -5,6 +5,7 @@ import { SocketService }from "./socket.service";
 @Injectable()
 
 export class UserService {
+
     login: string;
 
     /**

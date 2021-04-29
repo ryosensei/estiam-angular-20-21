@@ -13,8 +13,6 @@ export class AuthComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  @Output() loginEvent = new EventEmitter<string>();
-
   constructor(private formBuilder: FormBuilder, private user: UserService, private router: Router) {}
 
   ngOnInit(): void {

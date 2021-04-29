@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import io           from 'socket.io-client';
-import { MessageModel } from "./../models/message.model";
-import { UserModel } from "./../models/user.model";
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Injectable }                      from '@angular/core';
+import io                                  from 'socket.io-client';
+import { MessageModel }                    from "./../models/message.model";
+import { UserModel }                       from "./../models/user.model";
+import { Router, ActivatedRoute, ParamMap }from '@angular/router';
 
 @Injectable()
 
@@ -38,12 +38,13 @@ export class SocketService {
      */
     login(username = null)
     {
-        username = username ?? localStorage.getItem("name");
-        this.username = username;
-        this.socket.emit("identify", {
-            name: username
-        });
-        localStorage.setItem("name", username);
+      this.socket.connect();
+      username = username ?? localStorage.getItem("name");
+      this.username = username;
+      this.socket.emit("identify", {
+          name: username
+      });
+      localStorage.setItem("name", username);
     }
 
     /**

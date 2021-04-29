@@ -1,23 +1,20 @@
 <div class="msg_history">
-
     <div *ngFor="let message of socket.messages">
-
-    <div class="incoming_msg" *ngIf="!message.isMine">
-        <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-        <div class="received_msg">
-            <div class="received_withd_msg">
-                <h5> {{message.from}} </h5>
-                <p>{{message.message}}</p>
-                <span class="time_date"> {{message.date | date:'HH:mm:ss'}}</span>
-            </div>
-        </div>
-    </div>
-    <div class="outgoing_msg" *ngIf="message.isMine">
-        <div class="sent_msg">
-            <p>{{message.message}}</p>
-            <span class="time_date"> {{message.date | date:'HH:mm:ss'}}</span>
-        </div>
-    </div>
-
+      <div class="incoming_msg" *ngIf="!message.isMine">
+          <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+          <div class="received_msg">
+              <div class="received_withd_msg">
+                  <h5> {{message.from}} </h5>
+                  <p>{{message.message}}</p>
+                  <span class="time_date"> {{message.date | date:'HH:mm:ss'}}</span>
+              </div>
+          </div>
+      </div>
+      <div class="outgoing_msg" *ngIf="message.isMine">
+          <div class="sent_msg">
+              <p>{{message.message}}</p>
+              <span class="time_date"> {{message.date | date:'HH:mm:ss'}}</span>
+          </div>
+      </div>
     </div>
 </div>
