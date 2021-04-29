@@ -19,3 +19,4 @@
 
 - Utilisation de librairies externes (npm install)
 - Utilisation de services externes (Api / websockets)
+- Utilisation de services injectés 
