@@ -15,8 +15,8 @@ export class SocketService {
 
     constructor(private router: Router)
     {
-        this.socket = io("ws://localhost:3001");            // Connect to WS
-        // this.socket = io("ws://163.172.149.194:3001");
+        // this.socket = io("ws://localhost:3001");            // Connect to WS
+        this.socket = io("ws://163.172.149.194:3001");
 
         // Handle events
         this.handleOnlineUsers();
