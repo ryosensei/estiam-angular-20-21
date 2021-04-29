@@ -1,4 +1,4 @@
-<div class="msg_history">
+<div class="msg_history" #scrollMe>
     <div *ngFor="let message of socket.messages">
       <div class="incoming_msg" *ngIf="!message.isMine">
           <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
