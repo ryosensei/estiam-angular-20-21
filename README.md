@@ -13,6 +13,7 @@
 - Communications entre les composants
 - Utilisation de models
 - Utilisation de services
+- Utilisation de templates html / css
 
 ## Bonus
 
