@@ -1,12 +1,12 @@
 {
   "name": "ws_server",
   "version": "1.0.0",
-  "description": "",
+  "description": "ESTIAM - 3A - 20/21 : Small websocket server to handle Chat application",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Marc VARLET <marc@varlet.org>",
   "license": "ISC",
   "dependencies": {
     "@ryosensei/console": "^1.0.1",

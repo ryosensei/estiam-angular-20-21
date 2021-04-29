@@ -1,6 +1,10 @@
 // Import libraries
 const server       = require('http').createServer();
-const io           = require('socket.io')(server);
+const io           = require('socket.io')(server, { 
+    cors: {
+        origin: "*",
+      }
+  });
 const { DateTime } = require('luxon');
 const { log }      = require('@ryosensei/console');
 
@@ -27,8 +31,6 @@ const startServer = async () => {
     // New client connected
     io.on('connection', function(client) {
         log(`Client connected \n`);
-
-
         // Must be identified
         client.on(`identify`, (params) => {
             let date = DateTime.now();
@@ -46,6 +48,7 @@ const startServer = async () => {
             for (let i in clients) {
                 if (clients[i].name !== params.name) {
                     clients[i].emit("user-connected", params.name);
+                } else {
                 }
             }
         });
@@ -76,8 +79,12 @@ const startServer = async () => {
             userConnected = userConnected.filter(user => {
                 return (user.name !== client.name);
             });
+            for (let i in clients) {
+                if (clients[i].name !== client.name) {
+                    clients[i].emit("user-disconnected", client.name);
+                }
+            }
             delete clients[client.id];
-
         });
     });
 }
